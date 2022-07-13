@@ -4,6 +4,7 @@ import fr.m2i.model.Guerrier;
 import fr.m2i.model.Healer;
 import fr.m2i.model.Personnage;
 import fr.m2i.model.Sorcier;
+import fr.m2i.util.Affichage;
 
 import static fr.m2i.util.FonctionUtil.*;
 
@@ -13,13 +14,17 @@ public class Combat {
 
     public Combat(){
 
-        Personnage perso1 = creationPerso();
-        Personnage perso2 = creationPerso();
+//        Personnage perso1 = creationPerso();
+//        Personnage perso2 = creationPerso();
+
+        Personnage perso1 = CreationPerso.createPerso();
+        Personnage perso2 = CreationPerso.createPerso();
+
 
         do{
-
+            Affichage.separateur();
+            Affichage.espace();
             int choix  = randomMaison(0,1);
-            System.out.println("  ");
             if(choix ==0 ){
                 perso1.attaquer(perso2);
             }
@@ -32,17 +37,20 @@ public class Combat {
             perso1.status();
             perso2.status();
 
+            Affichage.espace();
 
         }while(perso1.getPtnVie()>=0 && perso2.getPtnVie()>=0);
 
+        Affichage.separateur();
+        Affichage.espace();
 
         if(perso1.getPtnVie()<=0){
-            perso2.crierVictoire();
             perso1.pleurerDefaite();
+            perso2.crierVictoire();
         }
         else{
-            perso1.crierVictoire();
             perso2.pleurerDefaite();
+            perso1.crierVictoire();
         }
 
 

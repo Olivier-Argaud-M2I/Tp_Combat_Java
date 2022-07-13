@@ -1,5 +1,7 @@
 package fr.m2i.model;
 
+import fr.m2i.util.Affichage;
+
 import static fr.m2i.util.FonctionUtil.*;
 
 public class Healer extends Personnage{
@@ -24,7 +26,8 @@ public class Healer extends Personnage{
     public void recuperation() {
         int recup = randomMaison(0,2);
         this.setPtnVie(Math.min(this.getPtnVie()+recup,pvMax));
-        System.out.println(this.getNom()+ " "+ this.getPrenom()+" recupere " +recup +" point de vie");
+//        System.out.println(this.getNom()+ " "+ this.getPrenom()+" recupere " +recup +" point de vie");
+        Affichage.formatLigne(this.getNom()+ " "+ this.getPrenom()+" recupere " +recup +" point de vie");
     }
 
     @Override

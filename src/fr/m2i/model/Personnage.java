@@ -1,5 +1,6 @@
 package fr.m2i.model;
 
+import fr.m2i.util.Affichage;
 import fr.m2i.util.CharArt;
 
 public abstract class Personnage {
@@ -63,21 +64,25 @@ public abstract class Personnage {
 
     public void attaquer(Personnage cible){
         cible.ptnVie -= 5;
-        System.out.println(this.getPrenom() +" " +this.getNom() + " attaque " + cible.getNom() + " " + cible. getPrenom());
+        Affichage.formatLigne(this.getPrenom() +" " +this.getNom() + " attaque " + cible.getNom() + " " + cible. getPrenom() +" et lui inflige 5 degats");
     };
 
     public void status(){
-        System.out.println(this.getPrenom() +" " +this.getNom()+ this.getId() + " a " + this.getPtnVie()
+        Affichage.formatLigne(this.getPrenom() +" " +this.getNom()+ " a " + this.getPtnVie()
                 +" pdv et " +this.getPtnAction() + " pa");
+//        System.out.println(this.getPrenom() +" " +this.getNom()+ this.getId() + " a " + this.getPtnVie()
+//                +" pdv et " +this.getPtnAction() + " pa");
     }
 
     public void crierVictoire(){
-        System.out.println(this.getNom()+" "+this.getPrenom()+this.getId()+" a gagné  :D");
+        Affichage.formatLigne(this.getNom()+" "+this.getPrenom()+" a gagné  :D");
+//        System.out.println(this.getNom()+" "+this.getPrenom()+this.getId()+" a gagné  :D");
         new CharArt("VICTOIRE " +getPrenom().toUpperCase());
     }
 
     public void pleurerDefaite(){
-        System.out.println(this.getNom()+" "+this.getPrenom()+this.getId()+" a perdu");
+        Affichage.formatLigne(this.getNom()+" "+this.getPrenom()+" a perdu");
+//        System.out.println(this.getNom()+" "+this.getPrenom()+this.getId()+" a perdu");
     }
 
     public abstract void recuperation();

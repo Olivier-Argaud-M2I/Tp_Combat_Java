@@ -1,5 +1,7 @@
 package fr.m2i.model;
 
+import fr.m2i.util.Affichage;
+
 public class Sorcier extends Personnage{
 
     private Pouvoir pouvoir;
@@ -13,24 +15,25 @@ public class Sorcier extends Personnage{
     }
 
     public Sorcier() {
-        super("Le Gris","Gandalf",80,8);
+        super("Le Gris","Gandalf",80,0);
         this.setPouvoir(new Pouvoir());
     }
 
     public Sorcier(Integer id) {
-        super("Le Gris","Gandalf",80,8);
+        super("Le Gris","Gandalf",80,0);
         this.setPouvoir(new Pouvoir());
         this.setId(id);
     }
 
     public Sorcier(String nom, String prenom) {
-        super(nom, prenom, 80,8);
+        super(nom, prenom, 80,0);
         this.setPouvoir(new Pouvoir());
     }
 
     @Override
     public void recuperation() {
         this.setPtnAction(this.getPtnAction()+this.getPouvoir().getForce());
+        Affichage.formatLigne(this.getNom()+ " "+ this.getPrenom()+" recupere " +this.getPouvoir().getForce() +" points d'action");
     }
 
 
@@ -45,7 +48,8 @@ public class Sorcier extends Personnage{
     private void attaqueBonus(Personnage cible){
         int degat = (int)(Math.random()*10)+1;
         cible.ptnVie -= degat;
-        System.out.println(this.getNom() + " " +this.getPrenom() + " inflige " + degat + " supplementaire avec "+this.getPouvoir().getNom());
+//        System.out.println(this.getNom() + " " +this.getPrenom() + " inflige " + degat + " supplementaire avec "+this.getPouvoir().getNom());
+        Affichage.formatLigne(this.getNom() + " " +this.getPrenom() + " inflige " + degat + " supplementaire avec "+this.getPouvoir().getNom());
     }
 
     public void perteAction(){

@@ -32,6 +32,11 @@ public class Guerrier extends Personnage{
         Affichage.formatLigne(this.getNom()+ " "+ this.getPrenom()+" recupere " +this.getArme().getForce() +" points d'action");
     }
 
+    @Override
+    public void perteAction(){
+        this.setPtnAction(Math.max(this.getPtnAction() - 5, 0));
+    }
+
 
     public void attaquer(Personnage cible) {
         super.attaquer(cible);
@@ -47,9 +52,6 @@ public class Guerrier extends Personnage{
         Affichage.formatLigne(this.getNom() + " " +this.getPrenom() + " inflige " + degat + " supplementaire avec "+this.getArme().getNom());
     }
 
-    public void perteAction(){
-        this.setPtnAction(Math.max(this.getPtnAction() - 5, 0));
-    }
 
 
 }

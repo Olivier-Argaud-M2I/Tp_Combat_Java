@@ -1,9 +1,10 @@
 package fr.m2i.model;
 
+import fr.m2i.inter.ActionPersonnage;
 import fr.m2i.util.Affichage;
 import fr.m2i.util.CharArt;
 
-public abstract class Personnage {
+public abstract class Personnage implements ActionPersonnage {
 
     protected String nom;
     protected String prenom;
@@ -77,7 +78,5 @@ public abstract class Personnage {
         Affichage.formatLigne(this.getNom()+" "+this.getPrenom()+" a perdu");
     }
 
-    public abstract void recuperation();
-    public abstract void perteAction();
 
 }

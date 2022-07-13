@@ -13,7 +13,10 @@ public class CharArt {
 
     public CharArt(String text){
         System.out.println("");
-        drawString(text,"*",new Settings(Font.getFont("Serif "),800,600));
+//        drawString(text,"°",new Settings(Font.getFont("Serif"),800,600));
+//        drawString(text,"°",new Settings(new Font("TimesRoman", Font.BOLD, 12),800,600));
+        drawString(text,"",new Settings(new Font("Serif", Font.BOLD, 12),800,600));
+
         System.out.println("");
     }
 

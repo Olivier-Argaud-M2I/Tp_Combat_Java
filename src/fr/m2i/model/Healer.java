@@ -9,9 +9,6 @@ public class Healer extends Personnage{
 
     private final Integer pvMax = 80;
 
-    public Healer() {
-        super("La Blanc","Gandalf",80,8);
-    }
 
     public Healer(Integer id) {
         super("La Blanc","Gandalf",80,8);
@@ -26,7 +23,6 @@ public class Healer extends Personnage{
     public void recuperation() {
         int recup = randomMaison(0,2);
         this.setPtnVie(Math.min(this.getPtnVie()+recup,pvMax));
-//        System.out.println(this.getNom()+ " "+ this.getPrenom()+" recupere " +recup +" point de vie");
         Affichage.formatLigne(this.getNom()+ " "+ this.getPrenom()+" recupere " +recup +" point de vie");
     }
 

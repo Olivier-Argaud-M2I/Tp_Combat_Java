@@ -51,10 +51,6 @@ public abstract class Personnage {
         this.id = id;
     }
 
-    public Personnage() {
-    }
-
-
     public Personnage(String nom, String prenom, Integer ptnVie, Integer ptnAction) {
         this.nom = nom;
         this.prenom = prenom;
@@ -70,19 +66,15 @@ public abstract class Personnage {
     public void status(){
         Affichage.formatLigne(this.getPrenom() +" " +this.getNom()+ " a " + this.getPtnVie()
                 +" pdv et " +this.getPtnAction() + " pa");
-//        System.out.println(this.getPrenom() +" " +this.getNom()+ this.getId() + " a " + this.getPtnVie()
-//                +" pdv et " +this.getPtnAction() + " pa");
     }
 
     public void crierVictoire(){
         Affichage.formatLigne(this.getNom()+" "+this.getPrenom()+" a gagné  :D");
-//        System.out.println(this.getNom()+" "+this.getPrenom()+this.getId()+" a gagné  :D");
         new CharArt("VICTOIRE " +getPrenom().toUpperCase());
     }
 
     public void pleurerDefaite(){
         Affichage.formatLigne(this.getNom()+" "+this.getPrenom()+" a perdu");
-//        System.out.println(this.getNom()+" "+this.getPrenom()+this.getId()+" a perdu");
     }
 
     public abstract void recuperation();

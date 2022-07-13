@@ -14,10 +14,6 @@ public class Sorcier extends Personnage{
         this.pouvoir = pouvoir;
     }
 
-    public Sorcier() {
-        super("Le Gris","Gandalf",80,0);
-        this.setPouvoir(new Pouvoir());
-    }
 
     public Sorcier(Integer id) {
         super("Le Gris","Gandalf",80,0);
@@ -48,7 +44,6 @@ public class Sorcier extends Personnage{
     private void attaqueBonus(Personnage cible){
         int degat = (int)(Math.random()*10)+1;
         cible.ptnVie -= degat;
-//        System.out.println(this.getNom() + " " +this.getPrenom() + " inflige " + degat + " supplementaire avec "+this.getPouvoir().getNom());
         Affichage.formatLigne(this.getNom() + " " +this.getPrenom() + " inflige " + degat + " supplementaire avec "+this.getPouvoir().getNom());
     }
 

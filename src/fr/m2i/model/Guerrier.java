@@ -14,10 +14,6 @@ public class Guerrier extends Personnage{
         this.arme = arme;
     }
 
-    public Guerrier() {
-        super("Barbare","Conan",100,0);
-        this.setArme(new Arme());
-    }
 
     public Guerrier(Integer id) {
         super("Barbare","Conan",100,0);
@@ -49,7 +45,6 @@ public class Guerrier extends Personnage{
         int degat = (int)(Math.random()*5)+1;
         cible.ptnVie -= degat;
         Affichage.formatLigne(this.getNom() + " " +this.getPrenom() + " inflige " + degat + " supplementaire avec "+this.getArme().getNom());
-//        System.out.println(this.getNom() + " " +this.getPrenom() + " inflige " + degat + " supplementaire avec "+this.getArme().getNom());
     }
 
     public void perteAction(){

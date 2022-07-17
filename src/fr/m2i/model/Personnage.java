@@ -63,12 +63,12 @@ public abstract class Personnage implements ActionPersonnage {
     public void attaquer(Personnage cible){
         cible.ptnVie -= 5;
         Affichage.formatLigne(this.getPrenom() +" " +this.getNom() + " attaque "
-                + cible.getNom() + " " + cible. getPrenom() +" et lui inflige "+ FrontColor.ROUGE.getValue() +"5"+FrontColor.RESET.getValue()+" degats      ");
+                + cible.getNom() + " " + cible. getPrenom() +" et lui inflige "+ FrontColor.ROUGE.getValue() +"5"+FrontColor.RESET.getValue()+" degats");
     };
 
     public void status(){
         Affichage.formatLigne(this.getPrenom() +" " +this.getNom()+ " a "+ FrontColor.MAGENTA.getValue() + this.getPtnVie() + FrontColor.RESET.getValue()
-                +" pdv et " + FrontColor.AZUR.getValue() +this.getPtnAction() + FrontColor.RESET.getValue() + " pa");
+                +" pdv et " + FrontColor.CYAN.getValue() +this.getPtnAction() + FrontColor.RESET.getValue() + " pa");
     }
 
     public void crierVictoire(){

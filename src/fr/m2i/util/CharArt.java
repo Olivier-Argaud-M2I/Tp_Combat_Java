@@ -1,21 +1,24 @@
 package fr.m2i.util;
 
 
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
+import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 
 public class CharArt {
 
 
     public CharArt(String text){
+        text = text.replace(""," ");
         System.out.println("");
 //        drawString(text,"°",new Settings(Font.getFont("Serif"),800,600));
 //        drawString(text,"°",new Settings(new Font("TimesRoman", Font.BOLD, 12),800,600));
-        drawString(text,"",new Settings(new Font("Serif", Font.BOLD, 12),800,600));
+//        drawString(text,"°",new Settings(new Font("Serif", Font.PLAIN, 12),200,18));
+        drawString(text,"°",new Settings(new Font("Arial", Font.BOLD, 12),200,18));
 
         System.out.println("");
     }
@@ -27,13 +30,16 @@ public class CharArt {
         BufferedImage image = getImageIntegerMode(settings.width, settings.height);
 
         Graphics2D graphics2D = getGraphics2D(image.getGraphics(), settings);
-        graphics2D.drawString(text, 6, ((int) (settings.height * 0.67)));
+        graphics2D.drawString(text, 0, ((int) (settings.height * 0.67)));
+
+
+        FrontColor[] listeColors = FrontColor.values();
 
         for (int y = 0; y < settings.height; y++) {
             StringBuilder stringBuilder = new StringBuilder();
 
             for (int x = 0; x < settings.width; x++) {
-                stringBuilder.append(image.getRGB(x, y) == -16777216 ? " " : artChar);
+                stringBuilder.append(image.getRGB(x, y) == -16777216 ? BackColor.ANSI_BLACK_BACKGROUND.getValue()+" " : artChar);
             }
 
             if (stringBuilder.toString()
@@ -42,7 +48,8 @@ public class CharArt {
                 continue;
             }
 
-            System.out.println(stringBuilder);
+            int i = y%listeColors.length;
+            System.out.println(listeColors[i].getValue()+stringBuilder);
         }
 
     }

@@ -1,6 +1,7 @@
 package fr.m2i.model;
 
 import fr.m2i.util.Affichage;
+import fr.m2i.util.FrontColor;
 
 public class Guerrier extends Personnage{
 
@@ -29,7 +30,7 @@ public class Guerrier extends Personnage{
     @Override
     public void recuperation() {
         this.setPtnAction(this.getPtnAction()+this.getArme().getForce());
-        Affichage.formatLigne(this.getNom()+ " "+ this.getPrenom()+" recupere " +this.getArme().getForce() +" points d'action");
+        Affichage.formatLigne(this.getNom()+ " "+ this.getPrenom()+" recupere " +FrontColor.EMMERAUDE.getValue()+this.getArme().getForce()+ FrontColor.RESET.getValue() +" points d'action");
     }
 
     @Override
@@ -49,7 +50,7 @@ public class Guerrier extends Personnage{
     private void attaqueBonus(Personnage cible){
         int degat = (int)(Math.random()*5)+1;
         cible.ptnVie -= degat;
-        Affichage.formatLigne(this.getNom() + " " +this.getPrenom() + " inflige " + degat + " supplementaire avec "+this.getArme().getNom());
+        Affichage.formatLigne(this.getNom() + " " +this.getPrenom() + " inflige " + FrontColor.ROUGE.getValue() + degat +FrontColor. RESET.getValue() + " supplementaire avec "+this.getArme().getNom());
     }
 
 

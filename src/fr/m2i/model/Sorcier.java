@@ -1,6 +1,7 @@
 package fr.m2i.model;
 
 import fr.m2i.util.Affichage;
+import fr.m2i.util.FrontColor;
 
 public class Sorcier extends Personnage{
 
@@ -29,7 +30,7 @@ public class Sorcier extends Personnage{
     @Override
     public void recuperation() {
         this.setPtnAction(this.getPtnAction()+this.getPouvoir().getForce());
-        Affichage.formatLigne(this.getNom()+ " "+ this.getPrenom()+" recupere " +this.getPouvoir().getForce() +" points d'action");
+        Affichage.formatLigne(this.getNom()+ " "+ this.getPrenom()+" recupere " +FrontColor.EMMERAUDE.getValue()+this.getPouvoir().getForce()+ FrontColor.RESET.getValue() +" points d'action");
     }
 
 
@@ -44,7 +45,7 @@ public class Sorcier extends Personnage{
     private void attaqueBonus(Personnage cible){
         int degat = (int)(Math.random()*10)+1;
         cible.ptnVie -= degat;
-        Affichage.formatLigne(this.getNom() + " " +this.getPrenom() + " inflige " + degat + " supplementaire avec "+this.getPouvoir().getNom());
+        Affichage.formatLigne(this.getNom() + " " +this.getPrenom() + " inflige " + FrontColor.ROUGE.getValue() + degat +FrontColor. RESET.getValue() + " supplementaire avec "+this.getPouvoir().getNom());
     }
 
     public void perteAction(){

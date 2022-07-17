@@ -1,30 +1,29 @@
 package fr.m2i.util;
 
 
-
 public class Affichage {
 
 
     public static void afficheMenuSelection(){
         separateur();
-        System.out.println(String.format( "/                        Choissez un type de combatant                /"));
-        System.out.println(String.format( "/                1 : Guerrier                                         /"));
-        System.out.println(String.format( "/                2 : Sorcier                                          /"));
-        System.out.println(String.format( "/                3 : Soigneur                                         /"));
+        formatLigne("                Choissez un type de combatant        ");
+        formatLigne("                "+FrontColor.EMMERAUDE.getValue()+"1"+FrontColor.RESET.getValue()+" : Guerrier                                      ");
+        formatLigne("                "+FrontColor.EMMERAUDE.getValue()+"2"+FrontColor.RESET.getValue()+" : Sorcier                                       ");
+        formatLigne("                "+FrontColor.EMMERAUDE.getValue()+"3"+FrontColor.RESET.getValue()+" : Soigneur                                      ");
     }
 
     /**
      * affiche un separateur dans la console
      */
     public static void separateur(){
-        System.out.println(String.format( "/*********************************************************************/"));
+        System.out.println(String.format( FrontColor.JAUNE.getValue()+"/*********************************************************************/"+FrontColor.RESET.getValue()));
     }
 
     /**
      * affiche un espace dans la console
      */
     public static void espace(){
-        System.out.println(String.format( "/                                                                     /"));
+        formatLigne("");
     }
 
     /**
@@ -43,7 +42,7 @@ public class Affichage {
      * @param message String a mettre en forme
      */
     public static void formatLigne(String message ){
-        System.out.println("/   "+String.format("%-66s",message) + "/");
+        System.out.println(FrontColor.JAUNE.getValue()+"/   "+FrontColor.RESET.getValue()+String.format("%-66s",message) + FrontColor.JAUNE.getValue()+"/"+FrontColor.RESET.getValue());
     }
 
 
